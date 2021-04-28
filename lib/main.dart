@@ -24,7 +24,7 @@ class MyHomePage extends StatelessWidget {
     ),
     Transaction(
       id: 't2',
-      title: "Groceried",
+      title: "Groceries",
       amount: 4.99,
       date: DateTime.now(),
     ),
@@ -48,7 +48,49 @@ class MyHomePage extends StatelessWidget {
           Column(
             children: transactions.map((tr) {
               return Card(
-                child: Text(tr.title),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 15,
+                      ),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.purple,
+                          width: 2,
+                        ),
+                      ),
+                      child: Text(
+                        "\$${tr.amount}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.purple,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          tr.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          tr.date.toString(),
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               );
             }).toList(),
           ),
