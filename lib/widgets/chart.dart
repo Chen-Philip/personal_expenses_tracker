@@ -32,7 +32,7 @@ class Chart extends StatelessWidget {
         "weekday": DateFormat.E().format(weekday).substring(0, 1),
         "amount": totalAmount,
       };
-    });
+    }).reversed.toList();
   }
 
   @override
